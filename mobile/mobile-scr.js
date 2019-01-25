@@ -129,7 +129,7 @@ function getWeek() {
          }
          if(week.includes(2)){
             tue.setAttribute(checked,'true');
-            console.log('rman-"Tuesday should be checked.');
+            console.log('rman-Tuesday should be checked.');
          }
          if (week.includes(3)){
            wed.setAttribute('checked','true');

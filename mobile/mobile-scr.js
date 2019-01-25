@@ -109,41 +109,45 @@ function getWeek() {
           console.log("Get Week: "+ JSON.stringify(data));
           /*console.log("Get Week", data);*/
 
-        var week = data;
-        var sun=document.getElementById("0");
-        var mon=document.getElementById("1");
-        var tue=document.getElementById("2");
-        var wed=document.getElementById("3");
-        var thu=document.getElementById("4");
-        var fri=document.getElementById("5");
-        var sat=document.getElementById("6");
+           var week = data;
+           var sun=document.getElementById('0');
+           var mon=document.getElementById('1');
+           var tue=document.getElementById('2');
+           var wed=document.getElementById('3');
+           var thu=document.getElementById('4');
+           var fri=document.getElementById('5');
+           var sat=document.getElementById('6');
 
         //-------The following needs work---------
-         if(week.includes("0")){
-          sun.setAttribute('checked','true')
+         if(week.includes(0)){
+          sun.setAttribute('checked','true');
+          console.log('rman-Sunday should be checked.');
          }
-         if(week.includes("1")){
-            mon.setAttribute('checked','true')
+         if(week.includes(1)){
+            mon.setAttribute('checked','true');
+            console.log('rman-Monday should be checked.');
          }
-         if(week.includes("2")){
-           console.log("Tuesday is active...");
-            tue.setAttribute('checked','true');
+         if(week.includes(2)){
+            tue.setAttribute(checked,'true');
+            console.log('rman-"Tuesday should be checked.');
          }
-         if (week.includes("3")){
-          wed.setAttribute('checked','true');
+         if (week.includes(3)){
+           wed.setAttribute('checked','true');
+          console.log('rmanjs-wednesday should be checked');
           }
-         if (week.includes("4")){
+         if (week.includes(4)){
           thu.setAttribute('checked','true');
+          console.log('rmanjs-Thursday should be checked.');
           }
-         if (week.includes("5")){
+         if (week.includes(5)){
           fri.setAttribute('checked','true');
+          console.log('rmanjs-Friday should be checked.');
           }
-         if (week.includes("6")){
-          /*console.log("Saturday is active...");*/
-          sat.setAttribute('checked','true');
+         if (week.includes(6)){
+             sat.setAttribute('checked','true');
+             console.log('rmanjs-Saturday should be checked.');
           }
-          console.log("After ifs ", JSON.stringify(week));
-        }
+       }
     }
   ); getStatus();
  }

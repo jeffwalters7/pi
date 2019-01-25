@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+ <body style= 'background-color: beige'; onload="createRequest();">
+   <table class="mobile" cellpadding="2" cellspacing="2">
+<tbody>
+<!--------------------------------first 4 zone labels------------------------------------------->
+    <tr>
+     <td class="mobile">Zone#1</td>
+     <td class="mobile">Zone#2</td>
+     <td class="mobile">Zone#3</td>
+     <td class="mobile">Zone#4</td>
+    </tr>
+<!--------------------------------first 4 zone status-------------------------------------------->
+    <tr>
+     <td class="mobile"><span id="z1status"></span></td>
+     <td class="mobile"><span id="z2status"></span></td>
+     <td class="mobile"><span id="z3status"></span></td>
+     <td class="mobile"><span id="z4status"></span></td>
+    </tr>
+
+    <tr>
+      <td class="mobile"><input class="manual" value="t2r4c2" type="checkbox"><scan id="t2r4c2"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c3" type="checkbox"><scan id="t2r4c3"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c4" type="checkbox"><scan id="t2r4c4"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c5" type="checkbox"><scan id="t2r4c5"></span></td>
+    </tr>
+
+   <tr>
+     <td class="mobile">Zone#5</td>
+     <td class="mobile">Zone#6</td>
+     <td class="mobile">Zone#7</td>
+     <td class="mobile">Zone#8</td>
+  </tr>
+
+    <tr>
+     <td class="mobile"><span id="z5status"></span></td>
+     <td class="mobile"><span id="z6status"></span></td>
+     <td class="mobile"><span id="z7status"></span></td>
+     <td class="mobile"><span id="z8status"></span></td>
+    </tr>
+
+   <tr>
+    <td class="mobile"><input class="manual" value="t2r4c6" type="checkbox"><scan id="t2r4c6"></span></td>
+    <td class="mobile"><input class="manual" value="t2r4c7" type="checkbox"><scan id="t2r4c7"></span></td>
+    <td class="mobile"><input class="manual" value="t2r4c8" type="checkbox"><scan id="t2r4c8"></span></td>
+    <td class="mobile"><input class="manual" value="t2r4c9" type="checkbox"><scan id="t2r4c9"></span></td>
+   </tr>
+
+    <tr>
+     <td class="mobile">Zone#9</td>
+     <td class="mobile">Zone#10</td>
+     <td class="mobile">Zone#11</td>
+     <td class="mobile">Zone#12</td>
+  </tr>
+
+  <tr>
+     <td class="mobile"><span id="z9status"></span></td>
+     <td class="mobile"><span id="z10status"></span></td>
+     <td class="mobile"><span id="z11status"></span></td>
+     <td class="mobile"><span id="z12status"></span></td>
+    </tr>
+
+    <tr>
+      <td class="mobile"><input class="manual" value="t2r4c10" type="checkbox"><span id="t2r4c10"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c11" type="checkbox"><span id="t2r4c11"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c12" type="checkbox"><span id="t2r4c12"></span></td>
+      <td class="mobile"><input class="manual" value="t2r4c13" type="checkbox"><span id="t2r4c13"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table class="mobile-temp-last" cellspacing="2" cellpadding="2" >
+  <tbody>
+     <tr>
+        <td class="mobile-temp-ttl">Temperature</td>
+     </tr>
+     <tr>
+       <td class="mobile-temp"><span id="t1"></span></td>
+     </tr>
+  </tbody>
+</table>
+
+<br>
+
+<button class="mobile-button" type="button" onclick="manualMode()";>Execute</button>
+
+<script src="mobile-scr.js"></script>
+<link rel="stylesheet" href="mobile.css" />
+</body>
+</html>

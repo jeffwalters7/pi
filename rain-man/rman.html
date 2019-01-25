@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta src="http://47.24.20.103:5922/" content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+	<title>Rain Man 3k</title>
+
+	<meta content="sprinkler system controller" name="jeff walters">
+</head>
+
+
+
+<body style="height: 371px; background-image: url(New_Grass_4.jpg); color: rgb(0, 0, 0);" alink="#ee0000"
+	link="#0000ee" vlink="#551a8b" onload="createRequest();">
+
+	<br><div>
+		<button class="button refresh"; onclick="createRequest();">Rain Man 3000</button></div>
+		<br><br>
+	<div><button class="button refresh"; onclick="zoneArray();">Download Mods</button></div>
+	<br><br>
+	<table class="sched" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+          <td class="day-of-week-table">Hour</td>
+          <td class="day-of-week-table">Mins </td>
+       </tr>
+       <tr>
+           <td contenteditable='true' class="day-of-week-body"><span id="hh"></span></td>
+           <td contenteditable='true' class="day-of-week-body"><span id="mm"></span></td>
+       </tr>
+    </tbody>
+		</table>
+		<br>
+		<table class="tbl1" cellpadding="2" cellspacing="2">
+		<tbody>
+			<tr>
+				<td class="day-of-week-table">Monday</td>
+				<td class="day-of-week-table">Tuesday</td>
+				<td class="day-of-week-table">Wednesday</td>
+				<td class="day-of-week-table">Thursday</td>
+				<td class="day-of-week-table">Friday</td>
+				<td class="day-of-week-table">Saturday</td>
+				<td class="day-of-week-table">Sunday</td>
+			</tr>
+
+			<tr>
+				<td class="day-of-week-body"><input class="week" id='1' value=1 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='2' value=2 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='3' value=3 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='4' value=4 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='5' value=5 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='6' value=6 type="checkbox"></td>
+				<td class="day-of-week-body"><input class="week" id='0' value=0 type="checkbox" ></td>
+			</tr>
+		</tbody>
+	</table>
+	<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <table class="tbl2"; cellpadding="2" cellspacing="2">
+		<tbody>
+			<tr>
+				<td class="zones">Zones</td>
+				<td class="zones">Zone1</td>
+				<td class="zones">Zone2</td>
+				<td class="zones">Zone3</td>
+				<td class="zones">Zone4</td>
+				<td class="zones">Zone5</td>
+				<td class="zones">Zone6</td>
+				<td class="zones">Zone7</td>
+				<td class="zones">Zone8</td>
+				<td class="zones">Zone9</td>
+				<td class="zones">Zone10</td>
+				<td class="zones">Zone11</td>
+				<td class="zones">Zone12</td>
+			</tr>
+
+			<tr>
+				<td class="zones">Duration</td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c2"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c3"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c4"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c5"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c6"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c7"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c8"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c9"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c10"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c11"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c12"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r2c13"></span></td>
+			</tr>
+
+			<tr>
+				<td class="zones" >Status</td>
+				<td class="zone-body"><span id="z1status"></span></td>
+				<td class="zone-body"><span id="z2status"></span></td>
+				<td class="zone-body"><span id="z3status"></span></td>
+				<td class="zone-body"><span id="z4status"></span></td>
+				<td class="zone-body"><span id="z5status"></span></td>
+				<td class="zone-body"><span id="z6status"></span></td>
+				<td class="zone-body"><span id="z7status"></span></td>
+				<td class="zone-body"><span id="z8status"></span></td>
+				<td class="zone-body"><span id="z9status"></span></td>
+				<td class="zone-body"><span id="z10status"></span></td>
+				<td class="zone-body"><span id="z11status"></span></td>
+				<td class="zone-body"><span id="z12status"></span></td>
+			</tr>
+
+			<tr>
+				<td class="zones">GPIO#</td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c2"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c3"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c4"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c5"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c6"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c7"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c8"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c9"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c10"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c11"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c12"></span></td>
+				<td contenteditable="true" class="zone-body"><span id="t2r4c13"></span></td>
+			</tr>
+			<!--------Manual Override------------>
+			<tr>
+				<td class="zones"; onclick="manualMode()";>Manual</td>
+				<td class="zone-body"><input class="manual" value="t2r4c2" type="checkbox"><scan id="z1man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c3" type="checkbox"><scan id="z2man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c4" type="checkbox"><scan id="z3man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c5" type="checkbox"><scan id="z4man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c6" type="checkbox"><scan id="z5man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c7" type="checkbox"><scan id="z6man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c8" type="checkbox"><scan id="z7man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c9" type="checkbox"><scan id="z8man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c10" type="checkbox"><scan id="z9man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c11" type="checkbox"><scan id="z10man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c12" type="checkbox"><scan id="z11man"></span></td>
+				<td class="zone-body"><input class="manual" value="t2r4c13" type="checkbox"><scan id="z12man"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<div><a><button class="button refresh"; onclick="logs()";>View Log</a></button></div>
+	<br><p id='t1'></p>
+
+	<script src="rman.js"></script>
+	<link rel="stylesheet" href="rman.css" />
+
+</body>
+</html>

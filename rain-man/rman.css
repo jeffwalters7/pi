@@ -1,0 +1,120 @@
+.day-of-week-table {
+column-width: 110px;
+  text-align: center;
+  width: 70px;
+  color: yellow;
+  background-color: rgb(0, 102, 0);
+}
+.zones {
+  column-width: 90px;
+  text-align: center;
+  width: 100px;
+  color: yellow;
+  background-color: rgb(0,102,0)
+}
+.day-of-week-body {
+text-align: center;
+color: rgb(0,102,0);
+background-color: yellow
+}
+.zone-body{
+  text-align: center;
+  color:rgb(0,102,0);
+  background-color: yellow;
+
+}
+.tbl1{
+  margin-left: 265px
+}
+.sched{
+  margin-left: 450px
+}
+
+.temp1{
+  margin-left: 450px;
+  height: 150px;
+  text-align: center;
+  width: 150px;
+  text-align: center;
+  color:rgb(0,102,0);
+  background-color: yellow
+}
+
+.temp3{
+  margin-left: 450px
+}
+
+.button{
+  margin-left: 435px;
+  text-align: center;
+  height: 50px;
+  width: 190px;
+  font-family:"Times New Roman";
+  font-size: 15px;
+     -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  cursor: pointer
+}
+.refresh{
+background-color: rgb(1,102,0);
+color: yellow
+}
+
+.refresh:hover{
+  font-size: 20px;
+  font-style: italic;
+}
+.decide{
+margin-left: 175px;
+
+  font-size: 25px
+}
+.rpt{
+  margin-left: 140px;
+  column-width: 50px;
+  text-align: center;
+  background-color: black;
+  color: white
+}
+
+.rpt-body{
+  text-align: center;
+  column-width: 40px;
+  width: 40px;
+  background-color: white;
+  color: black
+}
+.mobile{
+  margin-left: 605px;
+  column-width: 200px;
+  background-color: rgb(1,102,0);
+  color: yellow;
+  text-align: center
+}
+
+.mobile-last{
+  margin-left: 160px;
+  column-width: 200px;
+  background-color: rgb(1,102,0);
+  color: yellow;
+  text-align: center
+}
+
+.mobile-temp{
+  margin-left: 60px;
+  width: 200px;
+  text-align: center;
+  column-width: 200px;
+}
+
+.mobile-button{
+  text-align: center;
+  margin-left: 105px;
+  height: 50px;
+  width: 100px;
+  background-color: rgb(1,102,0);
+  color: yellow
+
+}
+
+

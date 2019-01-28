@@ -107,7 +107,6 @@ function getWeek() {
            //callback(err);
          } else {
           console.log("Get Week");
-          /*console.log("Get Week", data);*/
 
         var week = data;
         var sun=document.getElementById('0');

@@ -118,27 +118,27 @@ function getWeek() {
         var fri=document.getElementById('5');
         var sat=document.getElementById('6');
         //-------The following needs work---------
-         if(week.includes("0")){
+         if(week.includes('0')){
           sun.setAttribute('checked','true')
          }
-         if(week.includes("1")){
+         if(week.includes('1')){
             mon.setAttribute('checked','true')
          }
-         if(week.includes("2")){
+         if(week.includes('2')){
            console.log("Tuesday is active...");
             tue.setAttribute('checked','true');
          }
-         if (week.includes("3")){
+         if (week.includes('3')){
            /*console.log("Wednesday is active...");*/
              wed.setAttribute('checked','true');
           }
-         if (week.includes("4")){
+         if (week.includes('4')){
           thu.setAttribute('checked','true');
           }
-         if (week.includes("5")){
+         if (week.includes('5')){
           fri.setAttribute('checked','true');
           }
-         if (week.includes("6")){
+         if (week.includes('6')){
           /*console.log("Saturday is active...");*/
           sat.setAttribute('checked','true');
           }
@@ -208,8 +208,7 @@ function(err, data) {
       console.log(err);
        //callback(err);
      } else {
-      console.log("Get Temp",data);
-
+      console.log("Raw Temp",data);
       //callback(null, data);
       if (data.length > 4) {
         trimdata= data.substr(0, 4);
@@ -217,9 +216,8 @@ function(err, data) {
         trimdata = data;
       }
 
-    var t1=document.getElementById("t1");t1.innerHTML =(trimdata);
-
-    console.log(t1);
+      var t1=document.getElementById("t1");t1.innerHTML =(trimdata);
+      console.log(t1);
       }
     }
   );

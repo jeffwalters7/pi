@@ -13,7 +13,7 @@ Raspberry Pi 3 B with DS18S20
 
 6.  from the command prompt type: sudo modprobe w1-therm
 
-7   to get the ID of sensors follow path to:/sys/bus/w1/devices
+7.  to get the ID of sensors follow path to:/sys/bus/w1/devices
  
 8.  from the command prompt type: ls
     (the sensor ID's should be listed there)

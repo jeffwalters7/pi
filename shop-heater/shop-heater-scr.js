@@ -129,11 +129,10 @@ function getWeek() {
             tue.setAttribute('checked','true');
          }
          if (week.includes('3')){
-           /*console.log("Wednesday is active...");*/
-             wed.setAttribute('checked','true');
+            wed.setAttribute('checked','true');
           }
          if (week.includes('4')){
-          thu.setAttribute('checked','true');
+          mthu.setAttribute('checked','true');
           }
          if (week.includes('5')){
           fri.setAttribute('checked','true');

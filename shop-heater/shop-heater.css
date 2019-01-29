@@ -1,49 +1,86 @@
 
-
-.project-label{
-  margin-left: 30px;
-  height: 30px;
-  text-align: center;
-  width: 130px;
-  text-align: center;
-  color:white;
-  background-color: blue
+.para {
+  position: relative;
+  width: 50px;
+  color: brown;
+  background-color: yellow;
+  margin-left: 55px;
 }
 
-.project-data{
-  margin-left: 225px;
-  height: 30px;
-  color: blue;
-  background-color: whitesmoke;
-  text-emphasis: bold
+.header {
+  position: relative;
+  margin-left: 35px;
+  width: 100;
+  color: brown;
+  background-color: white;
 }
-
-.project-button{
-  margin-left: 60px;
-  box-sizing: 50px;
-  height:50;
-  width: 90;
+.display {
+  position: relative;
+  margin-left: 65px;
   text-align: center;
-  text-emphasis: bold;
-  font-size: 15px;
-  font-family: 'Times New Roman';
+  font-size: 80;
+  width: 70px;
+
   color: white;
-  background-color: blue
+  background-color: brown;
+}
+.switch {
+  position: relative;
+  margin-left: 50px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-
-.refresh{
-background-color: rgb(1,102,0);
-color: yellow
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.mobile{
-  margin-left: 25px;
-  column-width: 50px;
-  background-color: rgb(1,102,0);
-  color: yellow;
-  text-align: center
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+input:checked + .slider {
+  background-color: brown;
+}
 
+/*input:focus + .slider {
+  box-shadow: 0 0 1px green;
+}*/
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders*/
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

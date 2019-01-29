@@ -108,37 +108,15 @@ function getWeek() {
          } else {
           console.log("Get Week");
 
-        var week = data;
-        var sun=document.getElementById('0');
-        var mon=document.getElementById('1');
-        var tue=document.getElementById('2');
-        var wed=document.getElementById('3');
-        var thu=document.getElementById('4');
-        var fri=document.getElementById('5');
-        var sat=document.getElementById('6');
+        var switch1= data;
+        var switch1=document.getElementById('switch1');
+
         //-------The following needs work---------
-         if (week.includes('0')){
-           sun.setAttribute('checked','true')
+         if (switch1.checked){
+           switch1.setAttribute('checked','true')
+           console.log("shop-heater-scr.js  Switch1 is checked.");
          }
-         if (week.includes('1')){
-            mon.setAttribute('checked','true')
-         }
-         if (week.includes('2')){
-           console.log("Tuesday is active...");
-           tue.setAttribute('checked','true');
-         }
-         if (week.includes('3')){
-            wed.setAttribute('checked','true');
-          }
-         if (week.includes('4')){
-           thu.setAttribute('checked','true');
-          }
-         if (week.includes('5')){
-           fri.setAttribute('checked','true');
-          }
-         if (week.includes('6')){
-            sat.setAttribute('checked','true');
-          }
+
       }
     }
   ); getStatus();
@@ -205,6 +183,7 @@ function(err, data) {
        //callback(err);
      } else {
       console.log("Raw Temp",data);
+
       //callback(null, data);
       if (data.length > 4) {
         trimdata= data.substr(0, 4);
@@ -213,6 +192,15 @@ function(err, data) {
       }
 
       var t1=document.getElementById("t1");t1.innerHTML =(trimdata);
+      var sw1=document.getElementById('switch1');sw1.innerHTML;
+
+      if (trimdata>70.0 && sw1.checked){
+        var p1=document.getElementById('p1');p1.innerHTML;
+        p1.style.display ='block';
+      }else{
+        var p1=document.getElementById('p1');p1.innerHTML;
+        p1.style.display='none';
+      }
       console.log(t1);
       }
     }

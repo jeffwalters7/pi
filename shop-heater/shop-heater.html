@@ -1,29 +1,28 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style background-color: biege>
 
+</style>
 </head>
 <body>
- <body style= 'background-color: beige'; onload="getTemp();">
-  <br><br>
-  <table class="project-label" cellpadding="2" cellspacing="2">
-  <tbody>
-    <tr>
-     <td class="project-label">Temperature</td>
-    </tr>
-    <tr>
-      <td class="project-data"><span id="t1"></span></td>
-     </tr>
+<body style= 'background-color: beige'; onload='getTemp()';></body style>
+  <br><h2 class='header'>Temperature</h2><br><div>
 
-  </tbody>
-</table>
+  </div>
+<label>
+  <span class="display" id='t1'></span>
+</label>
 <br><br>
+<label class="switch">
+  <input type="checkbox" id='switch1' onclick="getTemp()";>
+  <span class="slider round"></span>
+</label><br><br>
+<p id='p1' class='para'>Toasty!!</p>
 
-<button class="project-button" type="button" onclick="getTemp()";>Refresh</button>
 
-<script src="project-scr.js"></script>
-<link rel="stylesheet" href="project.css" />
+<script src="shop-heater-scr.js"></script>
+<link rel="stylesheet" href="new.css" />
 </body>
 </html>

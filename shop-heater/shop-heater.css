@@ -9,10 +9,10 @@
 
 .header {
   position: relative;
-  margin-left: 35px;
+  margin-left: 25px;
   width: 100;
-  color: brown;
-  background-color: white;
+  color: white;
+  background-color: brown;
 }
 .display {
   position: relative;
@@ -63,7 +63,7 @@
 }
 
 input:checked + .slider {
-  background-color: brown;
+  background-color: red;
 }
 
 /*input:focus + .slider {

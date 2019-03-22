@@ -174,21 +174,30 @@ function yelBlink(){
   }, 100);
 }
 
+var redBlinkInterval;
+var yelBlinkInterval;
 
 gpio.on('change', function(channel, value) {
-  console.log('Channel ' + channel + ' value is now ' + value);
+  //console.log('Channel ' + channel + ' value is now ' + value);
   if(channel==15 && value==true){
-    console.log('Blink Red');
-    var redBlinkInterval = setInterval(redBlink, 1500);
+    redBlinkInterval = setInterval(redBlink, 1500);
   }
 
   if(channel==15 && value==false){
-    console.log('On change = False');
-    turnPinOn(22);
     clearInterval(redBlinkInterval);
-    console.log('After clearInterval');
+
+  }
+
+  if(channel==16 && value==true){
+    yelBlinkInterval = setInterval(yelBlink, 1500);
+  }
+
+  if(channel==15 && value==false){
+    clearInterval(yelBlinkInterval);
+
   }
 });
+
 
 function garageDoor(){
   //readSwitch;

@@ -161,7 +161,6 @@ function turnPinOff(pin) {
 }
 
 function redBlink(){
-  //clearInterval(yelBlinkInterval);
   turnPinOff(22);
   setTimeout(function(){
     turnPinOn(22);
@@ -169,46 +168,18 @@ function redBlink(){
 }
 
 function yelBlink(){
-  //clearInterval(redBlinkInterval);
   turnPinOff(29);
   setTimeout(function(){
     turnPinOn(29);
   }, 100);
-  //readSwitch;
+
 }
 
-//var redBlinkInterval = setInterval(redBlink, 1500);
-//var yelBlinkInterval = setInterval(yelBlink, 1500);
 
-
-/*function readSwitch() {
-  gpio.read(15, function(err, value) {
-    if (err) throw err;
-    //console.log('The value is ' + value);
-    if(value==true){
-      //console.log('True '+value);
-      var redBlinkInterval = setInterval(redBlink, 1500);
-      gpio.read(15, function(err, value) {
-        if (err) throw err;
-        if(value==false){
-          console.log('Inside readSwitch '+ value);
-          clearInterval(redBlinkInterval);
-        }
-      });
-      //redBlinkInterval;
-    }
-    if(value==false){
-      clearInterval(redBlinkInterval);
-      //var redBlinkInterval = setInterval(redBlink, 1500);
-    }
-  });
-}*/
-// ---------------------Gpio Listener------------------------
 gpio.on('change', function(channel, value) {
   console.log('Channel ' + channel + ' value is now ' + value);
   if(channel==15 && value==true){
     console.log('Blink Red');
-    //redBlink();
     setInterval(redBlink, 1500);
   }
 
@@ -219,7 +190,6 @@ gpio.on('change', function(channel, value) {
     console.log('After clearInterval');
   }
 
-  //readSwitch(channel);
 });
 
 function garageDoor(){

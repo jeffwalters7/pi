@@ -179,19 +179,19 @@ gpio.on('change', function(channel, value) {
   console.log('Channel ' + channel + ' value is now ' + value);
   if(channel==15 && value==true){
     console.log('Blink Red');
-    setInterval(redBlink, 1500);
+    var redBlinkInterval = setInterval(redBlink, 1500);
   }
 
   if(channel==15 && value==false){
     console.log('On change = False');
     turnPinOn(22);
-    clearInterval(redBlink);
+    clearInterval(redBlinkInterval);
     console.log('After clearInterval');
   }
 });
 
 function garageDoor(){
-  //readSwitch();
+  //readSwitch;
 }
 
 (function startup() {

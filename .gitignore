@@ -1,0 +1,15 @@
+#
+# folders to exclude
+#
+node_modules/
+c/
+node/
+gpio/
+#
+#
+#
+#
+# files to exclude
+*.log
+*.json
+#

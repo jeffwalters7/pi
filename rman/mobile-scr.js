@@ -215,13 +215,13 @@ function(err, data) {
       console.log("Get Temp",data);
 
       //callback(null, data);
-      if (data.length > 4) {
+      /*if (data.length > 4) {
         trimdata= data.substr(0, 4);
       }else{
         trimdata = data;
-      }
+      }*/
 
-    var t1=document.getElementById("t1");t1.innerHTML =(trimdata);
+    var t1=document.getElementById("t1");t1.innerHTML =(data[0]);
 
     console.log(t1);
       }

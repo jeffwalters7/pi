@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=.85">
+
+</head>
+<body>
+   <body style="height: 381px; background-image: url(fireplace.jpg); color: rgb(0, 0, 0);" alink="#ee0000"
+   link="#0000ee" vlink="#551a8b" onload="createRequest();">
+   <br>
+  <table class="tbl-label" cellpadding="2" cellspacing="2" col width="160">
+   <tbody>
+    <tr>
+      <td class="tbl-label">Shop-</td>
+      <td class="tbl-label">Garage</td>
+      <td class="tbl-label">Input1 Pin</td>
+      <td class="tbl-label">I1 Status</td>
+      <td class="tbl-label">Input2 Pin</td>
+      <td class="tbl-label">I2 Status</td>
+    </tr>
+    <tr>
+      <td class="tbl-data"><span id="t1"></span></td>
+      <td class="tbl-data"><span id="t2"></span></td>
+      <td class="tbl-data"><span id="pin1"></span></td>
+      <td class="tbl-data"><span id="input1"></span></td>
+      <td class="tbl-data"><span id="pin2"></span></td>
+      <td class="tbl-data"><span id="input2"></span></td>
+    </tr>
+   </tbody>
+  </table>
+    <br>
+  <table class="tbl1-label"cellpadding="2" cellspacing="2" col width="120">
+    <tbody>
+      <tr>
+        <td class="tbl-label">MiscOut1</td>
+        <td class="tbl-label">Status</td>
+        <td class="tbl-label">MiscOut2</td>
+        <td class="tbl-label">Status</td>
+      </tr>
+      <tr>
+        <td class="tbl-data"><span id="pin3"></span></td>
+        <td class="tbl-data"><span id="miscOut1"></span></td>
+        <td class="tbl-data"><span id="pin4"></span></td>
+        <td class="tbl-data"><span id="miscOut2"></span></td>
+      </tr>
+        <td class="tbl-data"><input class="manual" value="ms1man" type="checkbox"><scan id="pin3"></span></td>
+        <td class="tbl-data"></td>
+        <td class="tbl-data"><input class="manual" value="ms2man" type="checkbox"><scan id="pin4"></span></td>
+        <td class="tbl-data"></td>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+    <br>
+  <table class="tbl2-label"cellpadding="2" cellspacing="2" col width="160">
+    <tbody>
+      <tr>
+         <td class="tbl-label">Relay1</td>
+         <td class="tbl-label">Status</td>
+         <td class="tbl-label">Relay2</td>
+         <td class="tbl-label">Status</td>
+         <td class="tbl-label">Relay3</td>
+         <td class="tbl-label">Status</td>
+      </tr>
+      <tr>
+         <td class="tbl-data"><span id="pin5"></span></td>
+         <td class="tbl-data"><span id="relay1"></span></td>
+         <td class="tbl-data"><span id="pin6"></span></td>
+         <td class="tbl-data"><span id="relay2"></span></td>
+         <td class="tbl-data"><span id="pin7"></span></td>
+         <td class="tbl-data"><span id="relay3"></span></td>
+      </tr>
+      <tr>
+        <td class="tbl-data"><input class="manual" value="r1man" type="checkbox"><scan id="pin5"></span></td>
+        <td class="tbl-data"></td>
+        <td class="tbl-data"><input class="manual" value="r2man" type="checkbox"><scan id="pin6"></span></td>
+        <td class="tbl-data"></td>
+        <td class="tbl-data"><input class="manual" value="r3man" type="checkbox"><scan id="pin7"></span></td>
+        <td class="tbl-data"></td>
+      </tr>
+      </tr>
+    </tbody>
+  </table>
+<br>
+<button class="misc-lbl" id="b1" type="button" onclick="manualMode()";>Push to Execute</button>
+<br><br>
+<button class="misc-lbl" id="b2" type="button" onclick="createRequest()";><span id="msg"></span></button>
+<br><div id="d2"><span id="d2"></span></div>
+<script src="garage-scr.js"></script>
+<link rel="stylesheet" href="garage.css" />
+</body>
+</html>

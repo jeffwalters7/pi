@@ -1,1 +1,4 @@
-# Program using Raspberry Pi 3 B for testing yard sprinkler heads from iPhone. 
+#
+#
+# Raspberry Pi 3B controls for
+# yard sprinkler heads from phone.

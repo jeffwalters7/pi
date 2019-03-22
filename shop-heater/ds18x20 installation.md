@@ -1,6 +1,6 @@
 Raspberry Pi 3 B with DS18S20
 
-1.  Edit / boot/config.txt
+1.  Edit $/boot/config.txt
     (add as last line of the file: dtoverlay=w1-gpio) save and reboot.
 
 2.  Make sure you have the latest version of NPM (npm install npm@latest -g)
@@ -13,7 +13,9 @@ Raspberry Pi 3 B with DS18S20
 
 6.  from the command prompt type: sudo modprobe w1-therm
 
-7.  to get the ID of sensors follow path to:/sys/bus/w1/devices
- 
+7.  to get the ID of sensors follow path to: $/sys/bus/w1/devices
+
 8.  from the command prompt type: ls
-    (the sensor ID's should be listed there)
+    (the sensor ID's should be listed)
+
+9. {10-0008037aa2ff : 10-0008037b47cf}

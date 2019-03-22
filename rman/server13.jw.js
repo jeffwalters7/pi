@@ -1,15 +1,22 @@
 var express = require('express');
 var cors = require('cors');
-var app = express();
 var bodyParser= require('body-parser');
 var gpio = require('rpi-gpio');
 var cron = require('node-cron');
 var async = require('async');
 var fs = require('fs');
 var log4js = require("log4js");
-var sensor = require('ds18x20');
-temp = 0;
-tempF = 0;
+var app = express();
+
+days = [];
+days = require('./rman/days.json');
+dow=days;
+
+var pins = require('./rman/pinstest.json');
+data=pins;
+
+var hhmm = require('./rman/hrsMins.json');
+hm=hhmm;
 
 //-----------------Set up logger----------------------------
 log4js.configure({
@@ -27,39 +34,17 @@ log4js.configure({
 });
 var logger = log4js.getLogger("server13.jw.js");
 logger.setLevel("INFO");
+//--------------------End logger setup------------------------
 
-/*var n= new Date();
-var dt= n.getDay();
-var h= n.getHours();
-var days = require('./days.json');
-var m = n.getMinutes();*/
-days = [];
-days = require('./days.json');
-dow=days;
-
-var pins = require('./pinstest.json');
-  data=pins;
-
-var hhmm = require('./hrsMins.json');
-  hm=hhmm;
 
 app.use(express.static('client'));
 app.use(express.static('gpio'));
 app.use(cors());
 app.use(bodyParser.json());
 
-//--------------------Get zone data--------------------------
+
 app.get('/', function (req, res) {
   res.send(data);
-  res.statusCode=200;
-  res.end();
-});
-
-//------Start time & days available for read by client-------
-app.get('/start', function (req, res) {
-  res.send(hhmm);
-  fs.writeFile('hrsMins.json', JSON.stringify(hhmm));
-  hm=hhmm;
   res.statusCode=200;
   res.end();
 });
@@ -69,28 +54,21 @@ app.get('/week', function (req, res) {
   res.statusCode=200;
   res.end();
 });
-//-----------------Get Log-----------------------------
+
 app.get('/log', function(req, res) {
-  res.download(__dirname + '/test.log', 'test.log');
+  res.download(__dirname + './rman/test.log', 'test.log');
 });
 
-//-----------------Get Log1----------------------------
+
 app.get('/log1', function(req, res) {
-  res.download(__dirname + '/test.log.1', 'test.log.1');
+  res.download(__dirname + './rman/test.log.1', 'test.log.1');
 });
 
 app.get('/temp', function (req, res) {
-  /*function dostuff() {
-    var sensor = require('ds18x20');
-    temp = sensor.get('10-0008037aa2ff');
-    tempF = (temp*9)/5 + 32;
-  }
-  setTimeout(dostuff,3000);*/
-  //res.statusCode=200;
   var sensor = require('ds18x20');
-  temp = sensor.get('10-0008037aa2ff');
-  tempF = (temp*9)/5 + 32;
-  console.log(tempF);
+  var temp = sensor.get('10-0008037aa2ff');
+  var tempF = (temp*9)/5 + 32;
+  //console.log(tempF);
   res.send(JSON.stringify(tempF));
   res.statusCode=200;
   res.end();
@@ -144,17 +122,6 @@ app.post('/manual', function (req, res) {
            res.end();
 });
 
-//----------------Post start hours & minutes-----------------------
-
-app.post('/hm1', function (req, res) {
-   hm = req.body;
-   fs.writeFile('hrsMins.json', JSON.stringify(hm));
-   //console.log(JSON.stringify(hm));
-   hhmm=hm;
-   //scheduleCron();
-   res.statusCode=200;
-   res.end();
-});
 
 function startExpress(callback) {
   var server = app.listen(5922, function() {
@@ -162,7 +129,6 @@ function startExpress(callback) {
     var host = server.address().address;
     var port = server.address().port;
 
-    //console.log("Server13.jw.js listening at http://%s:%s", host, port);
     callback(null);
   });
 }
@@ -175,18 +141,11 @@ cron.schedule('*/1 * * * *', function(){
   var dt= n.getDay();
   var h= n.getHours();
   var m = n.getMinutes();
-  /*console.log(Array.isArray(dow));
-  console.log("DOW = "+dow);
-  console.log("Day = "+dt);
-  console.log("Days = "+days);
-  console.log("Hours = "+h);
-  console.log("Minutes = "+m);*/
-//  console.log("DS = "+ds);
+
    if (dow.includes(dt) && h==data[0].strt && m==data[1].strt){
-       logger.info("<----Begin---->");
+       logger.info("<----BEGIN---->");
         cycleBegin();
-        //logger.info("GPIO #"+pin+" is ON!");
-  }
+   }
 });
 
 function reRun(callback) {
@@ -214,13 +173,6 @@ function cycleBegin(){
       }
     );
   }
-
-
-/*  if (callback) {
-    callback(null);
-  }*/
-
-
 
 function turnPinOn(pin) {
   gpio.write(pin, true, function(err) {
@@ -277,9 +229,7 @@ function buildStatus(callback) {
       function(seriesCallback) {
         reRun(seriesCallback);
       },
-     // function(seriesCallback) {
-     //   scheduleCron(seriesCallback);
-     // },
+
       function(seriesCallback) {
         startExpress(seriesCallback);
       }

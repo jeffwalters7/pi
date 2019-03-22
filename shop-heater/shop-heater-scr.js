@@ -55,14 +55,14 @@ function createRequest() {
            //callback(err);
          } else {
           console.log("On Load=createRequest");
-          /*console.log("Initial Request", data);*/
+          console.log("Initial Request", data);
           /*console.table(data);*/
           //callback(null, data);
 
           //----------populate GPIO# field--------------//
         var jason  = data;
 
-        var t2r4c2=document.getElementById("t2r4c2");t2r4c2.innerHTML =(jason[0].pin);
+      /*var t2r4c2=document.getElementById("t2r4c2");t2r4c2.innerHTML =(jason[0].pin);
         var t2r4c3=document.getElementById("t2r4c3");t2r4c3.innerHTML =(jason[1].pin);
         var t2r4c4=document.getElementById("t2r4c4");t2r4c4.innerHTML =(jason[2].pin);
         var t2r4c5=document.getElementById("t2r4c5");t2r4c5.innerHTML =(jason[3].pin);
@@ -88,87 +88,13 @@ function createRequest() {
         t2r2c12=document.getElementById("t2r2c12");t2r2c12.innerHTML =(jason[10].delayBeforeOff);
         t2r2c13=document.getElementById("t2r2c13");t2r2c13.innerHTML =(jason[11].delayBeforeOff);
         hh=document.getElementById("hh");hh.innerHTML =(jason[0].strt);
-        mm=document.getElementById("mm");mm.innerHTML =(jason[1]).strt;
-
-        }
-    }
-  );  getWeek();
-}
-
-function getWeek() {
-     sendRequest(
-   'http://47.24.20.103:5922/week',
-   'get',
-   null,
-   null,
-   function(err, data) {
-        if (err) {
-          console.log(err);
-           //callback(err);
-         } else {
-          console.log("Get Week");
-
-        var switch1= data;
-        var switch1=document.getElementById('switch1');
-
-        //-------The following needs work---------
-         if (switch1.checked){
-           switch1.setAttribute('checked','true')
-           console.log("shop-heater-scr.js  Switch1 is checked.");
-         }
-
-      }
-    }
-  ); getStatus();
- }
-
-
-function getLog() {
-      sendRequest(
-   'http://47.24.20.103:5922/log',
-   'get',
-   null,
-   null,
-   function(err, data) {
-        if (err) {
-          console.log(err);
-           //callback(err);
-         } else {
-          console.log("Get Log0",data);
-          logData=data;
-          //callback(null, data);
-        var p1=document.getElementById("p1");p1.innerHTML =(logData);
-
-        /*console.log(p1);*/
-
+        mm=document.getElementById("mm");mm.innerHTML =(jason[1]).strt;*/
 
         }
     }
   );
-}
-
-function getLog1() {
-  sendRequest(
-'http://47.24.20.103:5922/log1',
-'get',
-null,
-null,
-function(err, data) {
-    if (err) {
-      console.log(err);
-       //callback(err);
-     } else {
-      console.log("Get Log1",data);
-      logData=data;
-      //callback(null, data);
-    var p1=document.getElementById("p1");p1.innerHTML =(logData);
-
-    console.log(p1);
-
-
-      }
-    }
-  );
+    getStatus();
+    getTemp();
 }
 
 function getTemp() {
@@ -182,7 +108,7 @@ function(err, data) {
       console.log(err);
        //callback(err);
      } else {
-      console.log("Raw Temp",data);
+      console.log("scr - RawTemp",data);
 
       //callback(null, data);
       if (data.length > 4) {
@@ -192,15 +118,6 @@ function(err, data) {
       }
 
       var t1=document.getElementById("t1");t1.innerHTML =(trimdata);
-      var sw1=document.getElementById('switch1');sw1.innerHTML;
-
-      if (trimdata>70.0 && sw1.checked){
-        var p1=document.getElementById('p1');p1.innerHTML;
-        p1.style.display ='block';
-      }else{
-        var p1=document.getElementById('p1');p1.innerHTML;
-        p1.style.display='none';
-      }
       console.log(t1);
       }
     }
@@ -218,8 +135,8 @@ function getStatus() {
           console.log(err);
            //callback(err);
          } else {
-          console.log("Get Status");
-          /*console.log("Get Status", data);*/
+          //console.log("Get Status");
+          console.log("Get Status", data);
           /*console.table(data);*/
           //callback(null, data);
 
@@ -227,7 +144,7 @@ function getStatus() {
         var status = data;
 
         var z1status=document.getElementById("z1status");z1status.innerHTML =status[0];
-        var z2status=document.getElementById("z2status");z2status.innerHTML =status[1];
+        /*var z2status=document.getElementById("z2status");z2status.innerHTML =status[1];
         var z3status=document.getElementById("z3status");z3status.innerHTML =status[2];
         var z4status=document.getElementById("z4status");z4status.innerHTML =status[3];
         var z5status=document.getElementById("z5status");z5status.innerHTML =status[4];
@@ -236,52 +153,17 @@ function getStatus() {
         var z8status=document.getElementById("z8status");z8status.innerHTML =status[7];
         var z9status=document.getElementById("z9status");z9status.innerHTML =status[8];
         var z10status=document.getElementById("z10status");z10status.innerHTML =status[9];
-        var z11status=document.getElementById("z11status");z11status.innerHTML =status[10];
-        var z12status=document.getElementById("z12status");z12status.innerHTML =status[11];
-
+        var z11status=document.getElementById("z11status");z11status.innerHTML =status[10];*/
+        if(status[0]==false){
+          document.getElementById("b2").innerHTML="HTR-On";
+        }else{
+          document.getElementById("b2").innerHTML="HTR-Off";
         }
-    }
-  );
-}
 
-function postHrsMins(){
-  var data=hm;
-  console.log("postHrsMins - "+hm);
-  sendRequest(
-    'http://47.24.20.103:5922/hm1',
-       'post',
-       'application/json',
-        JSON.stringify(data),
-     function(err, data) {
-       if (err) {
-         console.log(err,data);
-         //callback(err);
-      } else {
-        console.log('Get Hours, Mins', JSON.stringify(data));
-        //callback(null, data);
-        }
-       }
-    );
-}
+      }
+     }
 
-function postStatus(){
-  var data=[0];
-  //console.log("postHrsMins - "+hm);
-  sendRequest(
-    'http://47.24.20.103:5922/postStat',
-       'post',
-       'application/json',
-        JSON.stringify(data),
-     function(err, data) {
-       if (err) {
-         console.log(err,data);
-         //callback(err);
-      } else {
-        console.log('Post Status', JSON.stringify(status));
-        //callback(null, data);
-        }
-       }
-    );
+  ); getStatus();
 }
 
 function postManual(mnarr){
@@ -296,30 +178,11 @@ function postManual(mnarr){
          console.log(err,mnarr);
          //callback(err);
       } else {
-        console.log('Manual Mode', mnarr);
+        console.log('postManual - ', JSON.stringify(mnarr));
         //callback(null, data);
         }
       }
-  );
-}
-
-function postDays(){
-  var data=(wkarr);
-  sendRequest(
-    'http://47.24.20.103:5922/days',
-       'post',
-       'application/json',
-        JSON.stringify(data),
-     function(err, data) {
-       if (err) {
-         console.log(err,data);
-         //callback(err);
-      } else {
-        console.log('Post days', data);
-        //callback(null, data);
-     }
-    }
-  );
+  ); getStatus();
 }
 
 function postZones(){
@@ -340,19 +203,6 @@ function postZones(){
      }
     }
   ); makeWeek();
-}
-
-function hrsMins(){
-  hm=[];
-  var h=[];
-  var m=[];
-  var hr=0;
-  var min=0;
-  var l=0;
-  var object={hr:h[l],min:m[l]};
-    hm.push(object);
-          //console.log(hm[0].hr+":"+hm[0].min);
-          postHrsMins(hm);
 }
 
 function zoneArray(){
@@ -404,75 +254,19 @@ function zoneArray(){
       console.log("Zone Array");
       postZones();
         //console.log(JSON.stringify(zonz));
- }
-
-
-function makeWeek(){
-  var x=document.getElementsByClassName("week");
-  wkarr=[];
-    for(i=0;i<7;i++){
-      if(x[i].checked){
-        wkarr.push(x[i].value);
-      }
-    }
-       console.log("Make Week");
-    /*console.log(wkarr);*/
-        postDays();
 }
 
 function manualMode(){
-  var x=document.getElementsByClassName("manual");
-    var mnarr=[];
-    var y=[];
-     y[0]=document.getElementById("t2r4c2").innerHTML;
-     y[1]=document.getElementById("t2r4c3").innerHTML;
-     y[2]=document.getElementById("t2r4c4").innerHTML;
-     y[3]=document.getElementById("t2r4c5").innerHTML;
-     y[4]=document.getElementById("t2r4c6").innerHTML;
-     y[5]=document.getElementById("t2r4c7").innerHTML;
-     y[6]=document.getElementById("t2r4c8").innerHTML;
-     y[7]=document.getElementById("t2r4c9").innerHTML;
-     y[8]=document.getElementById("t2r4c10").innerHTML;
-     y[9]=document.getElementById("t2r4c11").innerHTML;
-     y[10]=document.getElementById("t2r4c12").innerHTML;
-     y[11]=document.getElementById("t2r4c13").innerHTML;
+  var y=[];
+  var x=document.getElementsByClassName("chkbx");
+  y[0]=37;
+  var mnarr=[];
+  //console.log("x = "+ JSON.stringify(x));
+  var object={"pin":y[0]};
 
-      for(i=0;i<12;i++){
-        var object={pin:y[i]};
-          if(x[i].checked){
-             mnarr.push(object);
-             }
-        }
-          console.log("mnarr = "+ mnarr);
-        /*console.log(mnarr);*/
-          postManual(mnarr);
-          getStatus();
+    if (chkbx.checked == true) {
+       mnarr.push(object);
+       //console.log('inside for loop '+ switch1);
+    }
+     postManual(mnarr);
 }
-
-function logs(){
-  window.open('./jeff.html', "./jeff.html", 'width=490,height=550,left=50,top=100,scrollbars=yes');
-  console.log("Pop-up opened!");
-}
-
-function decide(){
-   var b=document.getElementById("0");
-   var c=document.getElementById("1");
-   var d=document.getElementById("2");
-
-   console.log("Decide function called. "+ b.checked);
-
-   if (b.checked == true){
-     console.log("Test0 selected");
-    getLog();
-   }
-   if (c.checked == true){
-     console.log("Test1 selected");
-     getLog1();
-   }
-   if (d.checked == true){
-     console.log("Test2 selected");
-     getLog2();
-   }
-}
-
-

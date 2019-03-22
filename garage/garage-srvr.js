@@ -172,7 +172,6 @@ function yelBlink(){
   setTimeout(function(){
     turnPinOn(29);
   }, 100);
-
 }
 
 
@@ -189,7 +188,6 @@ gpio.on('change', function(channel, value) {
     clearInterval(redBlink);
     console.log('After clearInterval');
   }
-
 });
 
 function garageDoor(){

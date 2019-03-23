@@ -174,6 +174,16 @@ function yelBlink(){
   }, 100);
 }
 
+function toggle() {
+  turnPinOn(22);
+  turnPinOff(29);
+  setTimeout(function(){
+    turnPinOff(22);
+    turnPinOn(29);
+  }, 500);
+
+}
+
 var redBlinkInterval;
 var yelBlinkInterval;
 var toggleInterval;
@@ -186,7 +196,7 @@ gpio.on('change', function(channel, value) {
 
   if(channel==15 && value==false){
     clearInterval(redBlinkInterval);
-
+    toggleInterval = setInterval(toggle, 1000);
   }
 
   if(channel==16 && value==true){
@@ -195,13 +205,22 @@ gpio.on('change', function(channel, value) {
 
   if(channel==15 && value==false){
     clearInterval(yelBlinkInterval);
-
+    toggleInterval = setInterval(toggle, 1000);
   }
 });
 
 
 function garageDoor(){
-  //readSwitch;
+  gpio.read(15, function(value){
+    if(value==true){
+      redBlinkInterval = setInterval(redBlink, 1500);
+    }
+  });
+  gpio.read(16, function(value){
+    if(value==true){
+      yelBlinkInterval = setInterval(yelBlink, 1500);
+    }
+  });
 }
 
 (function startup() {

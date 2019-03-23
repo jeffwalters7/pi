@@ -176,6 +176,7 @@ function yelBlink(){
 
 var redBlinkInterval;
 var yelBlinkInterval;
+var toggleInterval;
 
 gpio.on('change', function(channel, value) {
   //console.log('Channel ' + channel + ' value is now ' + value);

@@ -121,7 +121,7 @@ function getStatus() {
             document.getElementById("miscOut2").innerHTML =status[3];
             document.getElementById("relay1").innerHTML =status[4];
             document.getElementById("relay2").innerHTML =status[5];
-            document.getElementById("relay3").innerHTML =status[6];
+            //document.getElementById("relay3").innerHTML =status[6];
 
            if(status[4]==false){
              document.getElementById("b2").innerHTML="Htr on";
@@ -146,6 +146,25 @@ function postManual(mnarr){
          //callback(err);
       } else {
         console.log('postManual - ', JSON.stringify(mnarr));
+        //callback(null, data);
+      }
+     }
+  );
+}
+
+function postMomentary(){
+  var data=({'pin':'40'});
+  sendRequest(
+    'http://47.24.20.103:5922/momentary',
+       'post',
+       'application/json',
+        JSON.stringify(data),
+     function(err, data) {
+      if (err) {
+         console.log(err,data);
+         //callback(err);
+      } else {
+        console.log('postMomentary - ', JSON.stringify(data));
         //callback(null, data);
       }
      }
@@ -180,9 +199,9 @@ function manualMode(){
   y[1]=document.getElementById("pin4").innerHTML;
   y[2]=document.getElementById("pin5").innerHTML;
   y[3]=document.getElementById("pin6").innerHTML;
-  y[4]=document.getElementById("pin7").innerHTML;
+  //y[4]=document.getElementById("pin7").innerHTML;
 
-  for(i=0;i<5;i++){
+  for(i=0;i<4;i++){
     var object={pin:y[i]};
     if(x[i].checked == true) {
        mnarr.push(object);
@@ -190,6 +209,14 @@ function manualMode(){
     }
        //console.log('inside manualMode: '+ mnarr);
   }
+   /*console.log('Mnarr = '+ JSON.stringify(mnarr));
+   if(mnarr[0].pin==40){
+     console.log('Mnarr manualMode = '+mnarr);
+     postMomentary();
+   }else{
+     console.log('Else----->');
      postManual(mnarr);
-     getStatus();
+   }*/
+   postManual(mnarr);
+   getStatus();
 }

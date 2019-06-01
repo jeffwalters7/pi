@@ -206,56 +206,43 @@ var redBlinkInterval;
 var yelBlinkInterval;
 var toggleInterval;
 var con = console.log;
-var count;
+var debounced = false;
+var channel;
+
 
 gpio.on('change', function(channel, value) {
-    //count = 1;
-    //con('Channel ' + channel + ' value is now ' + value);
-    if(channel==15 && value==true){
-        clearInterval(toggleInterval);
-        redBlinkInterval = setInterval(redBlink, 1500);
-    }
-
-    if(channel==15 && value==false){
-        clearInterval(redBlinkInterval);
-        toggleInterval = setInterval(toggle, 1000);
-    }
-
-    if(channel==16 && value==true){
-        clearInterval(toggleInterval);
-        yelBlinkInterval = setInterval(yelBlink, 1500);
-    }
-
-    if(channel==16 && value==false){
-        clearInterval(yelBlinkInterval);
-        toggleInterval = setInterval(toggle, 1000);
+    if (debounced === false) {
+        debounced = true;
+        setTimeout(function (){
+            garageDoor();
+            debounced = false;
+        }, 350);
     }
 });
 
 
-  function garageDoor(){
-      con('garageDoor: '+count);
-      //count = 0;
-      gpio.read(15, function(value){
-          if(value==true){
-              //count = 1;
-              redBlinkInterval = setInterval(redBlink, 1500);
-          }
-      });
-
-      gpio.read(16, function(value){
-          if(value==true){
-              //count = 2;
+function garageDoor(){
+    clearInterval(toggleInterval);
+    clearInterval(yelBlinkInterval);
+    clearInterval(redBlinkInterval);
+    turnPinOn(22);
+    turnPinOn(29);
+    buildStatus(function(err, data) {
+        if(err){
+            //throw(err);
+        } else {
+            if(data[0]==true && data[1]==false){
+                redBlinkInterval = setInterval(redBlink, 1500);
+            }
+            if(data[0]==false && data[1]==true){
               yelBlinkInterval = setInterval(yelBlink, 1500);
-          }
-      });
-
-      /*if (count==0){
-          //con('Garage Door funtion: '+count);
-          toggleInterval = setInterval(toggle, 1000);
-      }*/
-
-  }
+            }
+            if(data[0]==false && data[1]==false){
+              toggleInterval = setInterval(toggle, 1000);
+            }
+        }
+  });
+}
 
 (function startup() {
     async.series(
@@ -272,13 +259,12 @@ gpio.on('change', function(channel, value) {
             function(seriesCallback) {
                 setupMiscOuts(seriesCallback);
             },
-            /*function(seriesCallback) {
-                garageDoor(seriesCallback);
-            }*/
+            function() {
+                garageDoor();
+            }
         ],
     function(err) {
         if (err) {
-          //console.log(err);
         }
     }
     );

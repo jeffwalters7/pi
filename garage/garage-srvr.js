@@ -8,7 +8,6 @@ var cors = require('cors');
 var fs = require('fs');
 var app = express();
 
-
 app.use(express.static('../garage'));
 app.use(express.static('../rman'));
 app.use(cors());
